@@ -1,0 +1,18 @@
+
+@import "vendor/normalize";
+@import "./vendor/font-awesome/scss/font-awesome.scss";
+@import "lib/_theme";
+
+body {
+  background-color: #fff;
+}
+
+button {
+  width: 100px;
+  height: 35px;
+  margin: auto;
+
+  border-radius: 5px;
+  background-color: white;
+  border: 1px solid black;
+}
