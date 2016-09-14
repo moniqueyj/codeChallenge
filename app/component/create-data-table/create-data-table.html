@@ -1,35 +1,14 @@
 <div class ="create-data-table">
-  <!-- <button>by Month</button> -->
-  <form name="myForm">
-    <label for="setMonthInput">Sort by:</label>
-      <input id="setMonthInput" type="month" name="input" ng-model="setMonth.value"
-     placeholder="yyyy-MM-dd" min="2013-01-01" max="2016-08-31" required />
-    <button class="btn btn-default" type="submit" ng-click="byMonth()">Submit</button>
-  <!-- <div role="alert">
-    <span class="error" ng-show="myForm.input.$error.required">
-       Required!</span>
-    <span class="error" ng-show="myForm.input.$error.month">
-       Not a valid month!</span>
-  </div> -->
-  <tt>value = {{setMonth.value | date: "yyyy-MM-dd"}}</tt><br/>
-</form>
-  <!-- <button>by Week</button>
-  <button>by any Two dates</button> -->
-  <!-- <tr ng-repeat='list in list | setMonth.value | date: "yyyy-MM"'>
+  <table class="table">
+  <tr>
+    <th>Date</th>
+    <th>Users</th>
+    <th>Searches</th>
+  </tr>
+  <!-- <table-list></table-list> -->
+  <tr ng-repeat="list in lists">
     <td>{{list.date}}</td>
     <td>{{list.users}}</td>
     <td>{{list.searches}}</td>
-  </tr></br> -->
-  <table class="table">
-    <tr>
-      <th>Date</th>
-      <th>Users</th>
-      <th>Searches</th>
-    </tr>
-    <!-- <table-list></table-list> -->
-    <tr ng-repeat="list in list" | filter:"setMonth.value">
-      <td>{{list.date}}</td>
-      <td>{{list.users}}</td>
-      <td>{{list.searches}}</td>
-    </tr>
+  </tr>
 </div>
