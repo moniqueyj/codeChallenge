@@ -1,14 +1,95 @@
 <div class ="create-data-table">
+  <table>
+    <thead>
+      <section class="bylastMonth">
+        <button name="filter" ng-click="getLastMonth()">Last Month Data</button>
+      </section>
+      <section class="bylastWeek">
+        <button name="filter" ng-click="getLastWeek()">Last Week Data</button>
+      </section>
+      <section class="bytwoDays">
+        <input name="year" type="text" ng-model="date.year" >
+        <input name="month" type="text" ng-model="date.month" >
+        <button name="filter" ng-click="sortingByMonthFilter(date.year, date.month)">Between Two days</button>
+      </section>
+      <tr>
+        <td>
+        <a href="#" ng-click="sortType = 'date'; sortReverse = !sortReverse">
+          Date
+          <span ng-show="sortType == 'date' && !sortReverse" class="fa fa-caret-down"></span>
+          <span ng-show="sortType == 'date' && sortReverse" class="fa fa-caret-up"></span>
+        </a>
+        <section class="filteringByMonth">
+          <input name="year" type="text" ng-model="date.year" >
+          <input name="month" type="text" ng-model="date.month" >
+          <button name="filter" ng-click="sortingByMonthFilter(date.year, date.month)">Filter</button>
+        </section>
+      </td>
+      <td>
+        <a href="#" ng-click="sortType = 'users'; sortReverse = !sortReverse">
+        Users
+          <span ng-show="sortType == 'users' && !sortReverse" class="fa fa-caret-down"></span>
+          <span ng-show="sortType == 'users' && sortReverse" class="fa fa-caret-up"></span>
+        </a>
+        <form>
+          <div class="form-group">
+            <div class="input-group">
+              <div class="input-group-addon">
+                <i class="fa fa-search"></i>
+              </div>
+                <input type="text"
+                 name ="users"
+                 class="form-control" placeholder="search by Users #" ng-model="searchData">
+            </div>
+          </div>
+        </form>
+      </td>
+      <td>
+        <a href="#" ng-click="sortType = 'searches'; sortReverse = !sortReverse">
+        Searches
+          <span ng-show="sortType == 'searches' && !sortReverse" class="fa fa-caret-down"></span>
+          <span ng-show="sortType == 'searches' && sortReverse" class="fa fa-caret-up"></span>
+        </a>
+        <form>
+          <div class="form-group">
+            <div class="input-group">
+              <div class="input-group-addon">
+                <i class="fa fa-search"></i>
+              </div>
+                <input type="text"
+                 name ="searches"
+                 class="form-control" placeholder="search by Search #" ng-model="searchData">
+            </div>
+          </div>
+        </form>
+      </td>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr ng-repeat="list in lists | orderBy:sortType:sortReverse | filter:searchData">
+      <td>{{ list.date }}</td>
+      <td>{{ list.users }}</td>
+      <td>{{ list.searches }}</td>
+    </tr>
+  </tbody>
+
+</table>
+  <!-- <section class="filteringBymonth">
+    <input name="year" type="text" ng-model="date.year" >
+    <input name="month" type="text" ng-model="date.month" >
+    <button name="filter" ng-click="filter(date.year, date.month)">Filter</button>
+  </section>
   <table class="table">
   <tr>
-    <th>Date</th>
+    <th>Date<button ng-click="reverse()"></th>
     <th>Users</th>
     <th>Searches</th>
   </tr>
-  <!-- <table-list></table-list> -->
+
   <tr ng-repeat="list in lists">
     <td>{{list.date}}</td>
     <td>{{list.users}}</td>
     <td>{{list.searches}}</td>
-  </tr>
+  </tr> -->
 </div>
